@@ -16,7 +16,7 @@
     <util:properties id="hibernateConfiguration" location="classpath:spring/hibernate.properties" />
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/world" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/pr" />
         <property name="user" value="root" />
         <property name="password" value="master" />
         <property name="minPoolSize" value="2" />
@@ -30,7 +30,7 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="transactionAwareDataSource" />
-        <property name="packagesToScan" value="com.arapov.pr" />
+        <property name="packagesToScan" value="com.arapov.pr.domain" />
         <property name="hibernateProperties" ref="hibernateConfiguration" />
     </bean>
 
