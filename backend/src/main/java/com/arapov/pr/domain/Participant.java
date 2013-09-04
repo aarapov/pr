@@ -36,6 +36,9 @@ public class Participant implements Serializable {
     @Column(name = "CREATED_DATE")
     private Date createdDate;
 
+    @Version
+    private Long version;
+
     public Long getId() {
         return id;
     }
@@ -91,7 +94,4 @@ public class Participant implements Serializable {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
-
-    @Version
-    private Long version;
 }
