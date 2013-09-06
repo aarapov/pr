@@ -12,16 +12,17 @@
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
     <context:component-scan base-package="com.arapov.pr"/>
+    <context:property-placeholder location="classpath:spring/*.properties"/>
 
     <util:properties id="hibernateConfiguration" location="classpath:spring/hibernate.properties" />
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/pr" />
-        <property name="user" value="root" />
-        <property name="password" value="master" />
-        <property name="minPoolSize" value="2" />
-        <property name="maxPoolSize" value="10" />
-        <property name="maxStatements" value="10" />
+        <property name="driverClass" value="${c3p0.driverClass}" />
+        <property name="jdbcUrl" value="${c3p0.jdbcUrl}" />
+        <property name="user" value="${c3p0.username}" />
+        <property name="password" value="${c3p0.password}" />
+        <property name="minPoolSize" value="${c3p0.minPoolSize}" />
+        <property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+        <property name="maxStatements" value="${c3p0.maxStatements}" />
     </bean>
 
     <bean id="transactionAwareDataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
