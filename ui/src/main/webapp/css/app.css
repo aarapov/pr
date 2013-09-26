@@ -1,147 +1,116 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
+html {
+    height: 100%;
+}
 body {
     /*padding-top: 50px;*/
     /*padding-bottom: 40px;*/
     color: #5a5a5a;
     background-image: url(../img/background1.jpg);
+    height: 100%;
 }
 
-/*
+.credit {
+    margin: 20px 0;
+}
 
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    margin: 0 auto -60px;
+}
 
-*/
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- *//*
+#main {
+    overflow:auto;
+    padding-bottom:150px; /* this needs to be bigger than footer height*/
+    margin: 0 auto -60px;
+}
 
+#footer {
+    background-color: #8c2629;
+    width: 970px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #fef09b;
+}
 
-*/
-/* Special class on .container surrounding .navbar, used for positioning it into place. *//*
+#push, #footer {
+    height: 60px;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
 
-.navbar-wrapper {
+/* Carousel base class */
+.carousel {
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0 10px 15px #000;
+    box-shadow: 0 10px 15px #474747;
+}
+
+.carousel .container {
+    position: relative;
+    z-index: 9;
+}
+
+.carousel-control {
+    height: 80px;
+    margin-top: 0;
+    font-size: 120px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    background-color: transparent;
+    border: 0;
+    z-index: 10;
+}
+
+.carousel .item {
+    height: 300px;
+}
+.carousel img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 10;
-    margin-top: 20px;
-    margin-bottom: -90px; */
-/* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. *//*
-
+    min-width: 100%;
+    height: 500px;
 }
-    .navbar-wrapper .navbar {
 
-    }
-
-    */
-/* Remove border and change up box shadow for more contrast *//*
-
-    .navbar .navbar-inner {
-      border: 0;
-      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
-              box-shadow: 0 2px 10px rgba(0,0,0,.25);
-    }
-
-    */
-/* Downsize the brand/project name a bit *//*
-
-    .navbar .brand {
-      padding: 14px 20px 16px; */
-/* Increase vertical padding to match navbar links *//*
-
-      font-size: 16px;
-      font-weight: bold;
-      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-    }
-
-    */
-/* Navbar links: increase padding for taller navbar *//*
-
-    .navbar .nav > li > a {
-      padding: 15px 20px;
-    }
-
-    */
-/* Offset the responsive button for proper vertical alignment *//*
-
-    .navbar .btn-navbar {
-      margin-top: 10px;
-    }
-*/
+.carousel-caption {
+    background-color: transparent;
+    position: static;
+    max-width: 550px;
+    padding: 0 20px;
+    margin-top: 200px;
+}
+.carousel-caption h1,
+.carousel-caption .lead {
+    margin: 0;
+    line-height: 1.25;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.carousel-caption .btn {
+    margin-top: 10px;
+}
 
 
 
-    /* CUSTOMIZE THE CAROUSEL
-    -------------------------------------------------- */
+/* MARKETING CONTENT
+-------------------------------------------------- */
 
-    /* Carousel base class */
-    .carousel {
-      margin-bottom: 60px;
-    }
-
-    .carousel .container {
-      position: relative;
-      z-index: 9;
-    }
-
-    .carousel-control {
-      height: 80px;
-      margin-top: 0;
-      font-size: 120px;
-      text-shadow: 0 1px 1px rgba(0,0,0,.4);
-      background-color: transparent;
-      border: 0;
-      z-index: 10;
-    }
-
-    .carousel .item {
-      height: 300px;
-    }
-    .carousel img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      height: 500px;
-    }
-
-    .carousel-caption {
-      background-color: transparent;
-      position: static;
-      max-width: 550px;
-      padding: 0 20px;
-      margin-top: 200px;
-    }
-    .carousel-caption h1,
-    .carousel-caption .lead {
-      margin: 0;
-      line-height: 1.25;
-      color: #fff;
-      text-shadow: 0 1px 1px rgba(0,0,0,.4);
-    }
-    .carousel-caption .btn {
-      margin-top: 10px;
-    }
-
-
-
-    /* MARKETING CONTENT
-    -------------------------------------------------- */
-
-    /* Center align the text within the three columns below the carousel */
-    .marketing .span4 {
-      text-align: center;
-    }
-    .marketing h2 {
-      font-weight: normal;
-    }
-    .marketing .span4 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
+/* Center align the text within the three columns below the carousel */
+.marketing .span4 {
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: normal;
+}
+.marketing .span4 p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
 
     /* Featurettes
@@ -176,42 +145,39 @@ body {
 
 
 
-    /* RESPONSIVE CSS
-    -------------------------------------------------- */
+/* RESPONSIVE CSS
+-------------------------------------------------- */
 
-    @media (max-width: 979px) {
+@media (max-width: 979px) {
 
-      .container.navbar-wrapper {
+    .container.navbar-wrapper {
         margin-bottom: 0;
         width: auto;
-      }
-/*      .navbar-inner {
-        border-radius: 0;
-        margin: -20px 0;
-      }*/
+    }
 
-      .carousel .item {
+    .carousel .item {
         height: 500px;
-      }
-      .carousel img {
+    }
+
+    .carousel img {
         width: auto;
         height: 500px;
-      }
+    }
 
-      .featurette {
+    .featurette {
         height: auto;
         padding: 0;
-      }
-      .featurette-image.pull-left,
-      .featurette-image.pull-right {
+    }
+    .featurette-image.pull-left,
+    .featurette-image.pull-right {
         display: block;
         float: none;
         max-width: 40%;
         margin: 0 auto 20px;
-      }
     }
+}
 
-
+/*
     @media (max-width: 767px) {
 
       .navbar-inner {
@@ -256,21 +222,23 @@ body {
         line-height: 1.5;
       }
 
-    }
-    .view {
-        background-color: #fef09b;
-    }
+    }*/
+.view {
+    min-height: 100%;
+    height: auto !important;
+    background-color: #fef09b;
+}
 
-    .partial {
-        padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+.partial {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
-    .container {
-        width: 970px;
-    }
+.container {
+    width: 970px;
+}
 
-    .navbar {
-        margin-bottom: 0px;
-    }
+.navbar {
+    margin-bottom: 0px;
+}

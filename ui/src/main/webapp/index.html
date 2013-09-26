@@ -10,29 +10,38 @@
         <link href="css/app.css" rel="stylesheet"/>
     </head>
     <body>
-        <div class="container">
-            <div class="row-fluid">
-                <img src="img/title1.jpg">
-            </div>
-            <div class="row-fluid">
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <!--<div class="container">-->
+        <div id="wrap">
+            <div class="container">
+                <div class="row-fluid">
+                    <img src="img/title1.jpg">
+                </div>
+                <div class="row-fluid">
+                    <div class="navbar">
+                        <div class="navbar-inner">
                             <ul class="nav">
                                 <li class="highlighter"><a href="#/main">Главная</a></li>
                                 <li class="highlighter"><a href="#/teacher">Ринпоче</a></li>
                                 <li class="highlighter"><a href="#/projects">Проекты</a></li>
                                 <li class="highlighter"><a href="#/events">События</a></li>
+                                <li class="highlighter"><a href="#/webcast">Трансляции</a></li>
                             </ul>
-                        <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="view">
+                        <div ng-view>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="view">
-                    <div class="partial" ng-view>
-                    </div>
-                </div>
+            <div id="push"></div>
+        </div>
+        <div id="footer">
+            <div class="container">
+                <p class="credit">
+                    ©2013 patrulrinpoche.com.ua
+                </p>
             </div>
         </div>
 
