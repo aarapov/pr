@@ -1,15 +1,20 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-html {
+body {
+    color: #101050;
+    background-image: url(../img/background1.jpg);
+    font-family: Tahoma, Verdana, Helvetica;
+    font-weight: normal;
+    line-height: 160%;
+}
+
+body, html, .container-fluid {
     height: 100%;
 }
-body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 40px;*/
-    color: #5a5a5a;
-    background-image: url(../img/background1.jpg);
-    height: 100%;
+
+a:link, a:visited {
+    color: #fa6020;
 }
 
 .credit {
@@ -20,6 +25,7 @@ body {
     min-height: 100%;
     height: auto !important;
     margin: 0 auto -60px;
+    overflow: auto;
 }
 
 #main {
@@ -48,7 +54,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     -webkit-box-shadow: 0 10px 15px #000;
-    box-shadow: 0 10px 15px #474747;
+    box-shadow: 0 5px 6px #474747;
 }
 
 .carousel .container {
@@ -67,14 +73,14 @@ body {
 }
 
 .carousel .item {
-    height: 300px;
+    height: 400px;
 }
 .carousel img {
     position: absolute;
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 500px;
+    height: 400px;
 }
 
 .carousel-caption {
@@ -224,8 +230,10 @@ body {
 
     }*/
 .view {
-    min-height: 100%;
-    height: auto !important;
+/*    min-height: 100%;
+    height: auto !important;*/
+    overflow: auto;
+    height: 100%;
     background-color: #fef09b;
 }
 
@@ -235,10 +243,58 @@ body {
     padding-right: 20px;
 }
 
+.shadow {
+    -webkit-box-shadow: 0 0px 100px #000;
+    box-shadow: 0 10px 50px #000000;
+}
+
 .container {
     width: 970px;
 }
 
 .navbar {
     margin-bottom: 0px;
+}
+
+/************/
+/* HEADINGS */
+/************/
+
+h1.title {                                        /* page titles */
+    border-bottom: 1px solid #D6DDB9;
+    clear: left;
+    font-family: Myriad Pro, Myriad Web Pro Regular, Lucida Grande, Geneva, Trebuchet MS, sans-serif;
+    font-size: 1.833em;
+    font-weight: 600;
+    line-height: 1.272em;
+}
+
+h2.title {                                        /* block titles, node titles */
+    font-family: Myriad Pro, Myriad Web Pro Regular, Lucida Grande, Geneva, Trebuchet MS, sans-serif;
+    font-size: 1.13em;
+    /*font-size: 1.333em;*/
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+h2.title a:link,
+h2.title a:visited {
+}
+
+
+h2.title a:hover,
+h2.title a:active {
+    color: #619CBE;
+    text-decoration: none;
+}
+
+div.node h2.title {
+    border-bottom: 1px solid #d6ddb9;
+}
+
+p {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 160%;
+    margin: 10px 0;
 }
