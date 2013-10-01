@@ -12,7 +12,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ParticipantDao {
-    void createParticipant(Participant entity);
+    void save(Participant entity);
 
     List<Participant> findAll();
 }

@@ -27,8 +27,21 @@ public class Participant implements Serializable {
     @Column(name = "CITY")
     private String city;
 
-    @Column(name = "NEED_ACCOMMODATION")
-    private Boolean needAccommodation;
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "PHONE")
+    private String phone;
+
+    @Column(name = "ACCOMMODATION")
+    @Enumerated(EnumType.STRING)
+    private Accommodation accommodation;
+
+    @Column(name = "NEED_LUNCH")
+    private Boolean needLunch;
+
+    @Column(name = "NEED_COFFEE_BREAK")
+    private Boolean needCoffeeBreak;
 
     @Column(name = "NOTES")
     private String notes;
@@ -37,7 +50,8 @@ public class Participant implements Serializable {
     private Date createdDate;
 
     @Version
-    private Long version;
+    @Column(name = "VERSION")
+    private Long version = 1L;
 
     public Long getId() {
         return id;
@@ -71,12 +85,44 @@ public class Participant implements Serializable {
         this.city = city;
     }
 
-    public Boolean getNeedAccommodation() {
-        return needAccommodation;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNeedAccommodation(Boolean needAccommodation) {
-        this.needAccommodation = needAccommodation;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Accommodation getAccommodation() {
+        return accommodation;
+    }
+
+    public void setAccommodation(Accommodation accommodation) {
+        this.accommodation = accommodation;
+    }
+
+    public Boolean getNeedLunch() {
+        return needLunch;
+    }
+
+    public void setNeedLunch(Boolean needLunch) {
+        this.needLunch = needLunch;
+    }
+
+    public Boolean getNeedCoffeeBreak() {
+        return needCoffeeBreak;
+    }
+
+    public void setNeedCoffeeBreak(Boolean needCoffeeBreak) {
+        this.needCoffeeBreak = needCoffeeBreak;
     }
 
     public String getNotes() {
@@ -93,5 +139,13 @@ public class Participant implements Serializable {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }

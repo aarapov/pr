@@ -22,7 +22,7 @@ public class ParticipantDaoImpl implements ParticipantDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void createParticipant(Participant entity) {
+    public void save(Participant entity) {
         sessionFactory.getCurrentSession().save(entity);
     }
 
