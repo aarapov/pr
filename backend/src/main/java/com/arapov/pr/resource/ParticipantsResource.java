@@ -1,5 +1,6 @@
 package com.arapov.pr.resource;
 
+import com.arapov.pr.domain.Accommodation;
 import com.arapov.pr.domain.Participant;
 import com.arapov.pr.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,6 +28,12 @@ import java.util.List;
 public class ParticipantsResource {
     @Autowired
     private ParticipantService service;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/accommodation")
+    @ResponseBody
+    public List<Accommodation> getAccommodationTypes() {
+        return Arrays.asList(Accommodation.values());
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody

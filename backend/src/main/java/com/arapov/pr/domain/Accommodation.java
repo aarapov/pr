@@ -1,5 +1,7 @@
 package com.arapov.pr.domain;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: tema
