@@ -1,6 +1,6 @@
 package com.arapov.pr.service;
 
-import com.arapov.pr.domain.Participant;
+import com.arapov.pr.domain.ParticipantEntity;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ParticipantService {
-    List<Participant> getAllParticipants();
+    List<ParticipantEntity> getAllParticipants();
 
-    void createParticipant(Participant entity);
+    void createParticipant(ParticipantEntity entity);
 }

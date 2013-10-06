@@ -1,7 +1,7 @@
 package com.arapov.pr.dao.Impl;
 
 import com.arapov.pr.dao.ParticipantDao;
-import com.arapov.pr.domain.Participant;
+import com.arapov.pr.domain.ParticipantEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,12 +22,12 @@ public class ParticipantDaoImpl implements ParticipantDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void save(Participant entity) {
+    public void save(ParticipantEntity entity) {
         sessionFactory.getCurrentSession().save(entity);
     }
 
     @Override
-    public List<Participant> findAll() {
-        return sessionFactory.getCurrentSession().createCriteria(Participant.class).list();
+    public List<ParticipantEntity> findAll() {
+        return sessionFactory.getCurrentSession().createCriteria(ParticipantEntity.class).list();
     }
 }

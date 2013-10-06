@@ -2,7 +2,7 @@ package com.arapov.pr.dao.impl;
 
 import com.arapov.pr.dao.ParticipantDao;
 import com.arapov.pr.domain.Accommodation;
-import com.arapov.pr.domain.Participant;
+import com.arapov.pr.domain.ParticipantEntity;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,19 +33,19 @@ public class ParticipantDaoImplIT {
 
     @Test
     public void testFindAll() {
-        List<Participant> actualResult = dao.findAll();
+        List<ParticipantEntity> actualResult = dao.findAll();
 
         Assert.assertNotNull(actualResult);
     }
 
     @Test
     public void testSave() {
-        Participant expectedEntity = createParticipant();
+        ParticipantEntity expectedEntity = createParticipant();
         dao.save(expectedEntity);
     }
 
-    private Participant createParticipant() {
-        Participant entity = new Participant();
+    private ParticipantEntity createParticipant() {
+        ParticipantEntity entity = new ParticipantEntity();
         entity.setFirstName("FirstName");
         entity.setLastName("LastName");
         entity.setCity("City");

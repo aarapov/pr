@@ -1,4 +1,6 @@
-angular.module('site', ['ui', 'ui.bootstrap', 'ui.directives']).
+'use strict';
+
+angular.module('app', ['app.services']).
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/main', {templateUrl : 'partials/main.html', controller: MainController}).
@@ -6,6 +8,7 @@ angular.module('site', ['ui', 'ui.bootstrap', 'ui.directives']).
             when('/projects', {templateUrl : 'partials/projects.html'}).
             when('/events', {templateUrl : 'partials/events.html'}).
             when('/webcast', {templateUrl : 'partials/webcast.html'}).
-            when('/registration', {templateUrl : 'partials/registration.html'}).
+            when('/registration', {templateUrl : 'partials/registration.html', controller: RegistrationCtrl}).
+            when('/accommodation', {templateUrl: 'partials/accommodation.html'}).
             otherwise({redirectTo: '/main'});
     }]);

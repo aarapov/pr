@@ -10,5 +10,15 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 public enum Accommodation {
-    KAZACKIY, SENATOR, SELF_ACCOMODATION;
+    KAZACKIY("Отель Казацкий"), SENATOR("Отель Сенатор"), SELF_ACCOMODATION("Мне не нужно проживание");
+
+    private String description;
+
+    private Accommodation(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
 }

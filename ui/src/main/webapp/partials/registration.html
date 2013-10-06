@@ -1,26 +1,28 @@
-<div class="row-fluid">
+<div class="row-fluid" data-ng-controller="RegistrationCtrl">
     <div class="partial span12">
         <h1 class="title">Регистрация</h1>
         <div class="row-fluid">
             <div class="span4">
                 <img src="img/img07.png">
             </div>
-            <div class="span8">
+            <div class="span8" data-ng-hide="isRegistered">
                 <form class="form-horizontal">
                     <div class="control-group">
                         <label for="firstName" class="control-label">
-                            Имя:
+                            Имя*:
                         </label>
                         <div class="controls">
-                            <input id="firstName" type="text">
+                            <input id="firstName" class="span8"
+                                   data-ng-model="firstName" type="text" data-ng-required="true">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="lastName" class="control-label">
-                            Фамилия:
+                            Фамилия*:
                         </label>
                         <div class="controls">
-                            <input id="lastName" type="text">
+                            <input id="lastName" class="span8"
+                                   data-ng-model="lastName" type="text">
                         </div>
                     </div>
                     <div class="control-group">
@@ -28,21 +30,98 @@
                             Город:
                         </label>
                         <div class="controls">
-                            <input id="city" type="text">
+                            <input id="city" class="span8"
+                                   data-ng-model="city" type="text">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="email" class="control-label">
-                            Эл. почта:
+                            Эл. почта*:
                         </label>
                         <div class="controls">
-                            <input id="email" type="email">
+                            <input id="email" class="span8"
+                                   data-ng-model="participant.email" type="email">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="phone" class="control-label">
+                            Телефон*:
+                        </label>
+                        <div class="controls">
+                            <input id="phone" class="span8"
+                                   data-ng-model="participant.phone" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="phone" class="control-label">
+                            Дни Вашего Участия:
+                        </label>
+                        <div class="controls">
+                            <div id="date-table" class="span8">
+                                <div class="tcaption">Ноябрь 2013</div>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <td class="head"><b>Пятница</b></td>
+                                        <td class="head"><b>Суббота</b></td>
+                                        <td class="head"><b>Воскресенье</b></td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="content">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" data-ng-model="participant.friday">8
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="content">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" data-ng-model="participant.saturday">9
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="content">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" data-ng-model="participant.sunday">10
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="accommodation" class="control-label">
+                            Проживание:
+                        </label>
+                        <div class="controls">
+                            <select id="accommodation" class="span8" data-ng-model="participant.accommodation"
+                                    data-ng-options="c.key as c.value for c in accommodationList">
+                            </select>
+                            <a href="#/accommodation">Подробнее</a>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
                             <label class="checkbox">
-                                <input type="checkbox">Мне нужно проживание в Киеве. Подробнее смотрите <a href="#">здесь</a>
+                                <input type="checkbox"
+                                       data-ng-model="participant.needLunch">Мне нужен обед.
+                                <a href="files/lunch.pdf">Подробнее</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox">
+                                <input type="checkbox"
+                                       data-ng-model="participant.needCoffeeBreak">Мне нужен кофебрейк.
+                                <a href="files/coffee-break.pdf">Подробнее</a>
                             </label>
                         </div>
                     </div>
@@ -51,15 +130,19 @@
                             Примечания:
                         </label>
                         <div class="controls">
-                            <textarea id="notes" rows="6" placeholder="Укажите пожалуйста детали Вашего размещения"></textarea>
+                            <textarea id="notes" class="span8" rows="6" data-ng-model="notes">
+                            </textarea>
                         </div>
                     </div>
 
                     <div class="offset3">
-                        <button type="button" class="btn">Отменить</button>
-                        <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+                        <button type="button" class="btn" data-ng-click="clear()">Отменить</button>
+                        <button type="button" class="btn btn-primary" data-ng-click="save()">Зарегистрироваться</button>
                     </div>
                 </form>
+            </div>
+            <div data-ng-show="isRegistered">
+                <b>Спасибо за регистрацию!</b>
             </div>
         </div>
     </div>

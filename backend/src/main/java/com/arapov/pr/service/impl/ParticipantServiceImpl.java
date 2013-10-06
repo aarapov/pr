@@ -1,7 +1,7 @@
 package com.arapov.pr.service.impl;
 
 import com.arapov.pr.dao.ParticipantDao;
-import com.arapov.pr.domain.Participant;
+import com.arapov.pr.domain.ParticipantEntity;
 import com.arapov.pr.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,12 +24,12 @@ public class ParticipantServiceImpl implements ParticipantService {
     private ParticipantDao dao;
 
     @Override
-    public List<Participant> getAllParticipants() {
+    public List<ParticipantEntity> getAllParticipants() {
         return dao.findAll();
     }
 
     @Override
-    public void createParticipant(Participant entity) {
+    public void createParticipant(ParticipantEntity entity) {
         entity.setCreatedDate(new Date());
         dao.save(entity);
     }

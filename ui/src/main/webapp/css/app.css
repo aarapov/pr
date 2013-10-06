@@ -43,6 +43,30 @@ a:link, a:visited {
     height: 60px;
 }
 
+#date-table {
+    border: 1px solid #8c2629;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#date-table .tcaption {
+    text-align: center;
+    background: #8c2629;
+    color: #fef09b;
+}
+
+#date-table .head {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#date-table .content {
+    /*border: 1px solid #8c2629;*/
+    text-align: center;
+    padding-left: 20px;
+}
+
 /* Carousel base class */
 .carousel {
     margin-bottom: 0px;

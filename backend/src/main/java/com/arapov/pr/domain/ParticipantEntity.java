@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "PARTICIPANTS")
-public class Participant implements Serializable {
+public class ParticipantEntity implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -33,15 +33,24 @@ public class Participant implements Serializable {
     @Column(name = "PHONE")
     private String phone;
 
+    @Column(name = "FRIDAY")
+    private Boolean friday = Boolean.FALSE;
+
+    @Column(name = "SATURDAY")
+    private Boolean saturday = Boolean.FALSE;;
+
+    @Column(name = "SUNDAY")
+    private Boolean sunday = Boolean.FALSE;;
+
     @Column(name = "ACCOMMODATION")
     @Enumerated(EnumType.STRING)
     private Accommodation accommodation;
 
     @Column(name = "NEED_LUNCH")
-    private Boolean needLunch;
+    private Boolean needLunch = Boolean.FALSE;
 
     @Column(name = "NEED_COFFEE_BREAK")
-    private Boolean needCoffeeBreak;
+    private Boolean needCoffeeBreak = Boolean.FALSE;
 
     @Column(name = "NOTES")
     private String notes;
@@ -52,6 +61,19 @@ public class Participant implements Serializable {
     @Version
     @Column(name = "VERSION")
     private Long version = 1L;
+
+    /**
+     * Default constructor.
+     * */
+    public ParticipantEntity() {
+
+    }
+
+    /**
+     * Copying constructor.
+     * */
+    public ParticipantEntity(ParticipantEntity source) {
+    }
 
     public Long getId() {
         return id;
@@ -101,6 +123,30 @@ public class Participant implements Serializable {
         this.phone = phone;
     }
 
+    public Boolean getFriday() {
+        return friday;
+    }
+
+    public void setFriday(Boolean friday) {
+        this.friday = friday;
+    }
+
+    public Boolean getSaturday() {
+        return saturday;
+    }
+
+    public void setSaturday(Boolean saturday) {
+        this.saturday = saturday;
+    }
+
+    public Boolean getSunday() {
+        return sunday;
+    }
+
+    public void setSunday(Boolean sunday) {
+        this.sunday = sunday;
+    }
+
     public Accommodation getAccommodation() {
         return accommodation;
     }
@@ -147,5 +193,11 @@ public class Participant implements Serializable {
 
     public void setVersion(Long version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append(this.getFirstName())
+                .append(this.getLastName()).append(this.getCity()).toString();
     }
 }
