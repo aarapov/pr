@@ -6,14 +6,18 @@
                 <img src="img/img07.png">
             </div>
             <div class="span8" data-ng-hide="isRegistered">
-                <form class="form-horizontal">
+                <form name="formArea" novalidate class="form-horizontal">
+                    <p><b>Пожалуйста, заполните обязательные поля обозначенные * </b></p>
+                    <div class="alert alert-error" data-ng-show="isError">
+                        <b>Не удалось сохранить Ваши данные, попробуйте пожалуйста позже</b>
+                    </div>
                     <div class="control-group">
                         <label for="firstName" class="control-label">
                             Имя*:
                         </label>
                         <div class="controls">
                             <input id="firstName" class="span8"
-                                   data-ng-model="firstName" type="text" data-ng-required="true">
+                                   data-ng-model="firstName" type="text" required>
                         </div>
                     </div>
                     <div class="control-group">
@@ -22,7 +26,26 @@
                         </label>
                         <div class="controls">
                             <input id="lastName" class="span8"
-                                   data-ng-model="lastName" type="text">
+                                   data-ng-model="lastName" type="text" data-ng-required="true">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="email" class="control-label">
+                            Эл. почта*:
+                        </label>
+                        <div class="controls">
+                            <input id="email" class="span8"
+                                   data-ng-model="participant.email" type="email" data-ng-required="true">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="phone" class="control-label">
+                            Телефон*:
+                        </label>
+                        <div class="controls">
+                            <input id="phone" class="span8"
+                                   data-ng-model="participant.phone" type="text"
+                                   data-ng-required="true">
                         </div>
                     </div>
                     <div class="control-group">
@@ -32,24 +55,6 @@
                         <div class="controls">
                             <input id="city" class="span8"
                                    data-ng-model="city" type="text">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="email" class="control-label">
-                            Эл. почта*:
-                        </label>
-                        <div class="controls">
-                            <input id="email" class="span8"
-                                   data-ng-model="participant.email" type="email">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="phone" class="control-label">
-                            Телефон*:
-                        </label>
-                        <div class="controls">
-                            <input id="phone" class="span8"
-                                   data-ng-model="participant.phone" type="text">
                         </div>
                     </div>
                     <div class="control-group">
@@ -135,9 +140,9 @@
                         </div>
                     </div>
 
-                    <div class="offset3">
+                    <div class="offset4">
                         <button type="button" class="btn" data-ng-click="clear()">Отменить</button>
-                        <button type="button" class="btn btn-primary" data-ng-click="save()">Зарегистрироваться</button>
+                        <button type="button" class="btn btn-primary" data-ng-disabled="formArea.$invalid" data-ng-click="save()">Зарегистрироваться</button>
                     </div>
                 </form>
             </div>

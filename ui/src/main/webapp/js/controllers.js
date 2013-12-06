@@ -18,6 +18,7 @@ var RegistrationCtrl = function ($scope, AccommodationService, RegistrationServi
 
     $scope.participant = {};
     $scope.isRegistered = false;
+    $scope.isError = false;
 
     console.log(encodeURIComponent("тили тили трали вали"));
 
@@ -32,13 +33,21 @@ var RegistrationCtrl = function ($scope, AccommodationService, RegistrationServi
         $scope.participant.city = encodeURIComponent($scope.city);
         $scope.participant.notes = encodeURIComponent($scope.notes);
 
-        RegistrationService.save({}, $scope.participant, function(response) {
-            console.log('Saved');
-            $scope.isRegistered = true;
-        });
+        RegistrationService.save({}, $scope.participant,
+            function(response) {
+                $scope.isError = false;
+                $scope.isRegistered = true;
+            },
+            function() {
+                $scope.isError = true;
+            });
     };
 
     $scope.clear = function() {
+        $scope.firstName = "";
+        $scope.lastName = "";
+        $scope.city = "";
+        $scope.notes = "";
         $scope.participant = {};
     };
 }

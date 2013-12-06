@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['app.services']).
+angular.module('app', ['app.services', 'app.directives']).
     config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/main', {templateUrl : 'partials/main.html', controller: MainController}).
