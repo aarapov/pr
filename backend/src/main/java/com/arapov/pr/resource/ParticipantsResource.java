@@ -1,9 +1,6 @@
 package com.arapov.pr.resource;
 
 import com.arapov.pr.domain.Accommodation;
-import com.arapov.pr.domain.ParticipantEntity;
-import com.arapov.pr.service.ParticipantService;
-import org.omg.CORBA.PERSIST_STORE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Resource for {@link com.arapov.pr.domain.ParticipantEntity} objects.
+ *
  *
  * @author Artem Arapov
  * Date: 04.09.13
@@ -27,8 +24,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 @RequestMapping("/registration")
 public class ParticipantsResource {
-    @Autowired
-    private ParticipantService service;
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/accommodation")
     @ResponseBody
@@ -39,7 +35,7 @@ public class ParticipantsResource {
         }
         return result;
     }
-
+/*
     @RequestMapping(value = "/participants", method = RequestMethod.GET)
     @ResponseBody
     public List<ParticipantEntity> getAllParticipants() {
@@ -70,5 +66,5 @@ public class ParticipantsResource {
         result.setNotes(URLDecoder.decode(source.getNotes(), "UTF-8"));
 
         return result;
-    }
+    }*/
 }

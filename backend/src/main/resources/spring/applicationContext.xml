@@ -4,39 +4,24 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
-           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+           http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
 
     <context:component-scan base-package="com.arapov.pr"/>
-    <context:property-placeholder location="classpath:spring/*.properties"/>
+    <!--<context:property-placeholder location="classpath:spring/*.properties"/>-->
 
-    <util:properties id="hibernateConfiguration" location="classpath:spring/hibernate.properties" />
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="${c3p0.driverClass}" />
-        <property name="jdbcUrl" value="${c3p0.jdbcUrl}" />
-        <property name="user" value="${c3p0.username}" />
-        <property name="password" value="${c3p0.password}" />
-        <property name="minPoolSize" value="${c3p0.minPoolSize}" />
-        <property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
-        <property name="maxStatements" value="${c3p0.maxStatements}" />
-    </bean>
+    <mongo:db-factory dbname="prdatabase" host="127.0.0.1" port="27017"/>
+    <mongo:repositories base-package="com.arapov.pr.repositories"/>
 
-    <bean id="transactionAwareDataSource" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
-        <constructor-arg ref="dataSource" />
-    </bean>
-
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="transactionAwareDataSource" />
-        <property name="packagesToScan" value="com.arapov.pr.domain" />
-        <property name="hibernateProperties" ref="hibernateConfiguration" />
-    </bean>
-
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+    <!-- MongoTemplate for connecting and quering the documents in the database -->
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
     </bean>
 
     <tx:annotation-driven />
