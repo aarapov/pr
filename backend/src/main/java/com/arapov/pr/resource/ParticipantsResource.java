@@ -1,20 +1,11 @@
 package com.arapov.pr.resource;
 
-import com.arapov.pr.domain.Accommodation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- *
+ * Participants Resource.
  *
  * @author Artem Arapov
  * Date: 04.09.13
@@ -25,7 +16,7 @@ import java.util.List;
 @RequestMapping("/registration")
 public class ParticipantsResource {
 
-
+/*
     @RequestMapping(method = RequestMethod.GET, value = "/accommodation")
     @ResponseBody
     public List<AccommodationDTO> getAccommodationTypes() {
@@ -35,7 +26,7 @@ public class ParticipantsResource {
         }
         return result;
     }
-/*
+
     @RequestMapping(value = "/participants", method = RequestMethod.GET)
     @ResponseBody
     public List<ParticipantEntity> getAllParticipants() {

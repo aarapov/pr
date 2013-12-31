@@ -4,7 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * @author: Artem Arapov
+ * Recipient Document.
+ *
+ * @author Artem Arapov
  * Date: 16.12.13
  * Time: 18:32
  */

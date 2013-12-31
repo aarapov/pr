@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  * Recipient Repository.
  *
- * @author: Artem Arapov
+ * @author Artem Arapov
  * Date: 16.12.13
  * Time: 18:40
  */

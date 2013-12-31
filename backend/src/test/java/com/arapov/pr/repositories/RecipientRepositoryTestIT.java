@@ -11,7 +11,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 /**
- * @author: Artem Arapov
+ * Test cases for {@link RecipientRepository}.
+ *
+ * @author Artem Arapov
  * Date: 16.12.13
  * Time: 19:01
  */

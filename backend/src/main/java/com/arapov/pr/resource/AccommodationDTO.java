@@ -1,11 +1,9 @@
 package com.arapov.pr.resource;
 
-import com.arapov.pr.domain.Accommodation;
-
 /**
- * DTO to transfer {@link Accommodation} object.
+ * DTO to transfer  Accommodation object.
  *
- * @author: Artem Arapov
+ * @author Artem Arapov
  * Date: 03.10.13
  * Time: 21:31
  */
@@ -14,9 +12,19 @@ public class AccommodationDTO {
 
     private String value;
 
-    public AccommodationDTO(){}
+    /**
+     * Default Constructor.
+     */
+    public AccommodationDTO() {
+    }
 
-    public AccommodationDTO(String key, String value){
+    /**
+     * Constructor.
+     *
+     * @param key - value for key field.
+     * @param value - value.
+     */
+    public AccommodationDTO(String key, String value) {
         this.key = key;
         this.value = value;
     }
