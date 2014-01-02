@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mongoChangeLog>
+    <changeSet changeId="02012013-1" author="aarapov">
+        <script>
+            db.recipient.remove();
+
+            db.recipient.insert({
+              "firstName" : "artem", "lastName" : "arapov", "city" : "Odessa", "email" : "a@a.com", "postedDate" : new Date()});
+
+            db.recipient.insert({
+              "firstName" : "sana", "lastName" : "arapova", "city" : "Odessa", "email" : "b@b.com", "postedDate" : new Date()});
+        </script>
+    </changeSet>
+</mongoChangeLog>

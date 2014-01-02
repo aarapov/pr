@@ -1,14 +1,13 @@
 package com.arapov.pr.repositories;
 
-import com.arapov.pr.domain.RecipientDocument;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
+import com.arapov.pr.AbstractIntegrationTest;
+import com.arapov.pr.domain.RecipientDocument;
 
 /**
  * Test cases for {@link RecipientRepository}.
@@ -17,9 +16,7 @@ import java.util.List;
  * Date: 16.12.13
  * Time: 19:01
  */
-@ContextConfiguration(locations = {"/spring/applicationContext.xml"})
-@RunWith(SpringJUnit4ClassRunner.class)
-public class RecipientRepositoryTestIT {
+public class RecipientRepositoryTestIT extends AbstractIntegrationTest {
     @Autowired
     private RecipientRepository sut;
 
@@ -34,6 +31,19 @@ public class RecipientRepositoryTestIT {
         RecipientDocument expectedDocument = createRecipient();
 
         sut.save(expectedDocument);
+    }
+
+    @Test
+    public void testFindByFirstName() {
+        List<RecipientDocument> actualList = sut.findByFirstName("sana");
+        Assert.assertNotNull(actualList);
+        Assert.assertFalse(actualList.isEmpty());
+    }
+
+    @Test
+    public void testFindByEmail() {
+        RecipientDocument actual = sut.findByEmail("a@a.com");
+        Assert.assertNotNull(actual);
     }
 
     private RecipientDocument createRecipient() {

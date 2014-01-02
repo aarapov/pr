@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+           http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+
+    <context:component-scan base-package="com.arapov.pr"/>
+    <!--<context:property-placeholder location="classpath:spring/*.properties"/>-->
+
+    <mongo:db-factory dbname="prdatabase" host="127.0.0.1" port="27017"/>
+    <mongo:repositories base-package="com.arapov.pr.repositories"/>
+
+    <!-- MongoTemplate for connecting and quering the documents in the database -->
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+    </bean>
+
+    <!-- Mongeez -->
+    <bean id="mongoUri" class="com.mongodb.MongoURI">
+        <constructor-arg value="mongodb://127.0.0.1"/>
+    </bean>
+
+    <bean id="mongo" class="com.mongodb.Mongo">
+        <constructor-arg ref="mongoUri"/>
+    </bean>
+
+    <bean id="mongeez" class="org.mongeez.MongeezRunner">
+        <property name="mongo" ref="mongo"/>
+        <property name="executeEnabled" value="true"/>
+        <property name="dbName" value="prdatabase"/>
+        <property name="file" value="classpath:mongeez/mongeez.xml"/>
+    </bean>
+
+    <tx:annotation-driven />
+</beans>

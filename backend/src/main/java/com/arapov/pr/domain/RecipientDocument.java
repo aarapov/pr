@@ -1,6 +1,9 @@
 package com.arapov.pr.domain;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -22,7 +25,10 @@ public class RecipientDocument {
 
     private String city;
 
+    @Indexed(unique = true)
     private String email;
+
+    private final Date postedDate = new Date();
 
     public String getId() {
         return id;
@@ -62,5 +68,18 @@ public class RecipientDocument {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getPostedDate() {
+        return postedDate;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append(this.id).append(this.firstName).append(this.lastName).append(this.city).append(this.email);
+
+        return builder.toString();
     }
 }

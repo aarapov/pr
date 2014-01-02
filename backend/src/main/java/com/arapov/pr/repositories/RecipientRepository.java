@@ -1,7 +1,10 @@
 package com.arapov.pr.repositories;
 
-import com.arapov.pr.domain.RecipientDocument;
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.arapov.pr.domain.RecipientDocument;
 
 /**
  * Recipient Repository.
@@ -11,4 +14,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * Time: 18:40
  */
 public interface RecipientRepository extends MongoRepository<RecipientDocument, String> {
+    RecipientDocument findByEmail(String email);
+
+    List<RecipientDocument> findByFirstName(String firstName);
 }

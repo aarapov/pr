@@ -30,6 +30,7 @@
         <junit.version>4.7</junit.version>
         <jackson.verson>2.2.2</jackson.verson>
         <javax.servlet.version>3.0.1</javax.servlet.version>
+        <mongeez.version>0.9.3</mongeez.version>
     </properties>
 
     <repositories>
@@ -285,6 +286,13 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- Mongeez -->
+            <dependency>
+                <groupId>org.mongeez</groupId>
+                <artifactId>mongeez</artifactId>
+                <version>${mongeez.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
