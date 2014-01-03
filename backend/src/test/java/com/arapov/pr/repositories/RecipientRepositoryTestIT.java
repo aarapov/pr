@@ -17,6 +17,12 @@ import com.arapov.pr.domain.RecipientDocument;
  * Time: 19:01
  */
 public class RecipientRepositoryTestIT extends AbstractIntegrationTest {
+    private static final String EXPECTED_FIRST_NAME = "sana";
+    
+    private static final String EXPECTED_LAST_NAME = "arapova";
+    
+    private static final String EXPECTED_EMAIL = "a@a.com";
+    
     @Autowired
     private RecipientRepository sut;
 
@@ -24,6 +30,7 @@ public class RecipientRepositoryTestIT extends AbstractIntegrationTest {
     public void testFindAll() {
         List<RecipientDocument> actualList = sut.findAll();
         Assert.assertNotNull(actualList);
+        Assert.assertFalse(actualList.isEmpty());
     }
 
     @Test
@@ -35,15 +42,23 @@ public class RecipientRepositoryTestIT extends AbstractIntegrationTest {
 
     @Test
     public void testFindByFirstName() {
-        List<RecipientDocument> actualList = sut.findByFirstName("sana");
+        List<RecipientDocument> actualList = sut.findByFirstNameAndLastName(EXPECTED_FIRST_NAME, EXPECTED_LAST_NAME);
         Assert.assertNotNull(actualList);
         Assert.assertFalse(actualList.isEmpty());
+
+        RecipientDocument actualDocument = actualList.get(0);
+        Assert.assertNotNull(actualDocument);
+
+        Assert.assertEquals(EXPECTED_FIRST_NAME, actualDocument.getFirstName());
+        Assert.assertEquals(EXPECTED_LAST_NAME, actualDocument.getLastName());
     }
 
     @Test
     public void testFindByEmail() {
-        RecipientDocument actual = sut.findByEmail("a@a.com");
+        RecipientDocument actual = sut.findByEmail(EXPECTED_EMAIL);
         Assert.assertNotNull(actual);
+
+        Assert.assertEquals(EXPECTED_EMAIL, actual.getEmail());
     }
 
     private RecipientDocument createRecipient() {

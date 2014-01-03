@@ -20,10 +20,20 @@ public class RecipientService {
     @Autowired
     private RecipientRepository repository;
 
+    /**
+     * Save specified {@link RecipientDocument}.
+     * 
+     * @param document - Not <code>null</code>.
+     */
     public void saveRecipient(RecipientDocument document) {
         repository.save(document);
     }
 
+    /**
+     * Get all recipients.
+     * 
+     * @return {@link List} of {@link RecipientDocument}.
+     */
     public List<RecipientDocument> getAllRecipients() {
         return repository.findAll();
     }

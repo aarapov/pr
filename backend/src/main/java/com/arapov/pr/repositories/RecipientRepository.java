@@ -14,7 +14,21 @@ import com.arapov.pr.domain.RecipientDocument;
  * Time: 18:40
  */
 public interface RecipientRepository extends MongoRepository<RecipientDocument, String> {
+
+    /**
+     * Find {@link RecipientDocument} by specified email.
+     * 
+     * @param email - Not <code>null</code> value.
+     * @return {@link RecipientDocument} in success or <code>null</code> in other case.
+     */
     RecipientDocument findByEmail(String email);
 
-    List<RecipientDocument> findByFirstName(String firstName);
+    /**
+     * Find List of {@link RecipientDocument} by specified firstName and lastName.
+     * 
+     * @param firstName - Not <code>null</code> value.
+     * @param lastName - Not <code>null</code> value.
+     * @return {@link List} of entities in success or empty List in other case. 
+     */
+    List<RecipientDocument> findByFirstNameAndLastName(String firstName, String lastName);
 }
