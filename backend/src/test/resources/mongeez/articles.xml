@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mongoChangeLog>
+    <changeSet changeId="08012013-1" author="aarapov">
+        <script>
+            db.articles.insert({
+              "caption" : "Some Caption - 1", "content" : "There is some content", "postedDate" : new Date()});
+            db.articles.insert({
+              "caption" : "Some Caption - 2", "content" : "There is some content", "postedDate" : new Date()});
+            db.articles.insert({
+              "caption" : "Some Caption - 3", "content" : "There is some content", "postedDate" : new Date()});
+            db.articles.insert({
+              "caption" : "Some Caption - 4", "content" : "There is some content", "postedDate" : new Date()});
+            db.articles.insert({
+              "caption" : "Some Caption - 5", "content" : "There is some content", "postedDate" : new Date()});
+        </script>
+    </changeSet>
+</mongoChangeLog>
