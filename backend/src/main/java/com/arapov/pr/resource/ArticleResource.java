@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,7 +66,9 @@ public class ArticleResource {
      * @param id - Not <code>null</code>
      * @return {@link ArticleDocument} if found, otherwise <code>null</code>.
      */
-    public ArticleDocument getArticle(final String id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public ArticleDocument getArticle(@PathVariable(value = "id") final String id) {
         return service.getArticle(id);
     }
 }
