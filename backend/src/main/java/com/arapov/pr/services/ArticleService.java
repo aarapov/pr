@@ -43,7 +43,7 @@ public class ArticleService {
      * @return Page of {@link ArticleDocument}.
      */
     public Page<ArticleDocument> getLastArticles() {
-        Pageable pageRequest = new PageRequest(PAGE_NUM, PAGE_SIZE, DIRECTION);
+        Pageable pageRequest = new PageRequest(PAGE_NUM, PAGE_SIZE, DIRECTION, "postedDate");
 
         return repository.findAll(pageRequest);
     }

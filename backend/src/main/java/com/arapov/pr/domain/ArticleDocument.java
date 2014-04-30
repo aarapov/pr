@@ -19,7 +19,11 @@ public class ArticleDocument {
 
     private String caption;
 
+    private String foreword;
+
     private String content;
+
+    private String imagePath;
 
     private final Date postedDate = new Date();
 
@@ -49,5 +53,21 @@ public class ArticleDocument {
 
     public Date getPostedDate() {
         return postedDate;
+    }
+
+    public String getForeword() {
+        return foreword;
+    }
+
+    public void setForeword(String foreword) {
+        this.foreword = foreword;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }
